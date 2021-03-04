@@ -1,19 +1,31 @@
 import React from "react";
+import axios from "axios";
 
-export default function Test() {
-  const year = new Date().getFullYear();
-  const years = Array.from(new Array(20), (val, index) => index + year);
-  return (
-    <div>
-      <select>
-        {years.map((year, index) => {
-          return (
-            <option key={`year${index}`} value={year}>
-              {year}
-            </option>
-          );
-        })}
-      </select>
-    </div>
-  );
+function Test() {
+  var data = JSON.stringify({
+    studentName: "Olaniyi",
+    studentClass: "SS2",
+    session: "2020/2021",
+    term: "2nd",
+  });
+
+  var config = {
+    method: "get",
+    url: "https://halal-school.herokuapp.com/get-result",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  return <div></div>;
 }
+
+export default Test;
