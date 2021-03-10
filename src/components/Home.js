@@ -22,7 +22,7 @@ const Home = () => {
         <p className="sales">A place for the future</p>
       </div>
       <div className="navigate-us">
-        <div className="nav1" onClick={() => Login("Teacher")}>
+        <div className="nav1" onClick={() => Login("Admin")}>
           Login as Admin
         </div>
         <div className="nav1" onClick={() => Login("Teacher")}>

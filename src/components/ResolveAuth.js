@@ -9,11 +9,14 @@ const ResolveAuth = () => {
     const token = await localStorage.getItem("token");
 
     if (token && type === "Student") {
-      history.push("/result");
+      history.push("/studentcontrol");
+      // history.push("/result");
     } else if (token && type === "Teacher") {
-      history.push("/upload");
+      history.push("/teachercontrol");
+      // history.push("/upload");
     } else if (token && type === "Admin") {
-      history.push("/admin");
+      history.push("/admincontrol");
+      // history.push("/admincontrol");
     } else {
       history.push("/");
     }

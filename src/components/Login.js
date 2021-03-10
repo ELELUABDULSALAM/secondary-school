@@ -44,13 +44,13 @@ function Login() {
 
   if (token && type === "Admin") {
     var nav = true;
-    var move = history.push("/admin");
+    // var move = history.push("/admin");
   } else if (token && type === "Staff") {
     var nav = true;
-    var move = history.push("/staff");
+    // var move = history.push("/staff");
   } else if (!type) {
     var nav = true;
-    var move = history.push("/");
+    // var move = history.push("/");
   } else {
     var nav = false;
   }
@@ -130,7 +130,8 @@ function Login() {
           )}
         </form>
       ) : (
-        move
+        // move
+        <p>kkkk</p>
       )}
     </div>
   );

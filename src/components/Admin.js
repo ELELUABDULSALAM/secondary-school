@@ -11,9 +11,9 @@ import { useForm } from "react-hook-form";
 function Admin({}) {
   //get the param of url
   var { id, memberClass } = useParams();
-  memberClass.substring(1);
-  console.log(id);
-  console.log(memberClass.substring(1));
+  // memberClass.substring(1);
+  // console.log(id);
+  // console.log(memberClass.substring(1));
   const isAddMode = !id;
 
   const [submitting, setSubmitting] = useState(false);

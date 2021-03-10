@@ -8,7 +8,12 @@ import ResolveAuth from "./components/ResolveAuth";
 import UploadResult from "./components/UploadResult";
 import StudentList from "./components/StudentList";
 import Test from "./components/Test";
-import Result from "./components/ShowResult";
+import ShowResult from "./components/ShowResult";
+import AdminControl from "./components/AdminControl";
+import StudentControl from "./components/StudentControl";
+import TeacherControl from "./components/TeacherControl";
+import Profile from "./components/Profile";
+import StudentResult from "./components/StudentResult";
 
 function App() {
   return (
@@ -18,11 +23,19 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/resolve" component={ResolveAuth} />
+          <Route path="/admincontrol" component={AdminControl} />
+          <Route path="/studentcontrol" component={StudentControl} />
+          <Route path="/teachercontrol" component={TeacherControl} />
           <Route path="/admin" component={Admin} />
           <Route path="/upload" component={UploadResult} />
-          <Route path="/result" component={Result} />
+          <Route path="/result" component={ShowResult} />
           <Route path="/studentList" component={StudentList} />
+          <Route path="/profile" component={Profile} />
           <Route path="/edit-student/:id/:memberClass" component={Admin} />
+          <Route
+            path="/studentresult/:id/:memberClass"
+            component={StudentResult}
+          />
           <Route path="/test" component={Test} />
         </Switch>
       </Router>

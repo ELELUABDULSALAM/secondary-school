@@ -184,7 +184,7 @@ function UploadResult() {
               </select>
               <input name="subject" ref={register} />
               <input name="score" ref={register} />
-              <button type="submit">Submit</button>
+              <button type="submit">Add to Record</button>
             </form>
           </>
           <Form>

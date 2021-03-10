@@ -16,33 +16,28 @@ export const StateProvider = (props) => {
   });
 
   const signIn = async (history, username, password) => {
-    // await dispatch({ type: "request_done", payload: true });
     const getInfo = await localStorage.getItem("info");
 
     if (!username || !password) {
-      // await dispatch({ type: "request_done", payload: false });
       return alert("Kindly provide your username and password");
     }
-
+    // debugger;
+    const identity = localStorage.getItem("info");
     try {
       const response = await myAPI.post("/login", {
         username,
         password,
         userType: getInfo,
       });
-      // debugger;
-      // console.log(response.data.message);
-      if (response.data.message === "success") {
+      if (
+        response.data.message === "success" &&
+        identity === response.data.profile.memberType
+      ) {
         await localStorage.setItem("token", response.data.token);
         await localStorage.setItem(
           "username",
           JSON.stringify(response.data.profile)
         );
-
-        // await localStorage.setItem(
-        //   "profile",
-        //   JSON.stringify(response.data.profile)
-        // );
         await dispatch({
           type: "request_done",
           payload: response.data.profile,
@@ -56,10 +51,7 @@ export const StateProvider = (props) => {
       } else {
         console.log(response.data.message);
       }
-      // await dispatch({ type: "request_done", payload: user });
-      // await dispatch({ type: "request_done", payload: false });
     } catch (err) {
-      // await dispatch({ type: "request_done", payload: false });
       alert("No network connection");
     }
   };

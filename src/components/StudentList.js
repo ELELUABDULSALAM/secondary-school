@@ -122,6 +122,12 @@ function StudentList() {
                 {"Edit"}
               </button>
             </Link>
+            <Link
+              to={`/studentresult/:${states.firstName}/:${states.memberClass}`}
+              className="button"
+            >
+              <button>View Result</button>
+            </Link>
           </Card>
         </>
       )}
