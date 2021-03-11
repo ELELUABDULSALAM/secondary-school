@@ -21,6 +21,8 @@ function Admin({}) {
   const [user, setUser] = useState("");
   const [personstore, setPersonstore] = useState({});
 
+  useEffect(() => {}, []);
+
   // functions to build form returned by useForm() hook
   const {
     register,

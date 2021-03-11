@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Navbar from "./Navbar";
 
 function StudentResult() {
   const { register, handleSubmit } = useForm();
@@ -39,6 +40,7 @@ function StudentResult() {
 
   return (
     <>
+      <Navbar />
       <p>View student result</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <select name="session" ref={register({ required: true })}>

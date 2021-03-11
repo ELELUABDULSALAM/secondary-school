@@ -26,8 +26,8 @@ function App() {
           <Route path="/resolve" component={ResolveAuth} />
           <Route path="/admincontrol" component={AdminControl} />
           <Route path="/studentcontrol" component={StudentControl} />
-          <Route path="/teachercontrol" component={TeacherControl} />
           <Route path="/admin" component={Admin} />
+          <Route path="/teachercontrol" component={TeacherControl} />
           <Route path="/upload" component={UploadResult} />
           <Route path="/result" component={ShowResult} />
           <Route path="/studentList" component={StudentList} />

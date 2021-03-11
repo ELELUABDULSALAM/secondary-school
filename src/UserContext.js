@@ -56,8 +56,26 @@ export const StateProvider = (props) => {
     }
   };
 
+  const fetchUser = async (user) => {
+    try {
+      const response = await myAPI.post("/login", { user });
+      console.log(response);
+      // if (response.data.message === "success") {
+      //   await dispatch({
+      //     type: "store_user_data",
+      //     payload: response.data.profile,
+      //   });
+      // } else {
+      //   alert(response.data.message);
+      // }
+    } catch (err) {
+      alert("No network connection");
+    }
+  };
+
   const boundActions = {
     signIn,
+    fetchUser,
   };
 
   return (
