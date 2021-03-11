@@ -9,6 +9,7 @@ const Home = () => {
   useEffect(() => {}, []);
 
   function Login(info) {
+    localStorage.clear();
     localStorage.setItem("info", info);
     history.push("/login");
   }

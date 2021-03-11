@@ -14,6 +14,7 @@ import StudentControl from "./components/StudentControl";
 import TeacherControl from "./components/TeacherControl";
 import Profile from "./components/Profile";
 import StudentResult from "./components/StudentResult";
+import { Navbar } from "react-bootstrap";
 
 function App() {
   return (
