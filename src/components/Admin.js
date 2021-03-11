@@ -7,6 +7,7 @@ import { BounceLoader } from "react-spinners";
 // import { css } from "@emotion/core";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Navbar from "./Navbar";
 
 function Admin({}) {
   //get the param of url
@@ -151,85 +152,88 @@ function Admin({}) {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form-edit">
-      <div className="input">
-        <input
-          type="firstName"
-          placeholder="First Name"
-          name="firstName"
-          ref={register({ required: "First Name require" })}
-        />
-        {errors.firstName && (
-          <p style={{ fontSize: "10px", color: "red" }}>
-            {errors.firstName.message}
-          </p>
-        )}
-      </div>
-      <div className="input">
-        <input
-          type="surname"
-          placeholder="surname"
-          name="surname"
-          ref={register({ required: true })}
-        />
-      </div>
-      <div className="input">
-        <input
-          type="email"
-          placeholder="abd***@gmail.com"
-          name="email"
-          ref={register({ required: true })}
-        />
-      </div>
-      <div className="input">
-        <input
-          type="phoneNumber"
-          placeholder="+23481355*****"
-          name="phoneNumber"
-          ref={register({ required: true })}
-        />
-      </div>
-      <div className="input">
-        <input
-          type="address"
-          placeholder="address"
-          name="address"
-          ref={register({ required: true })}
-        />
-      </div>
-      <div className="input">
-        <select name="memberType" ref={register}>
-          <option value="">Select Category</option>
-          <option value={"Teacher"}>Teacher</option>
-          <option value={"Student"}>Student</option>
-        </select>
-      </div>
-      <div className="input">
-        <select name="memberClass" ref={register}>
-          <option value="">Select Class</option>
-          <option value={"SS3"}>SS3</option>
-          <option value={"SS2"}>SS2</option>
-          <option value={"SS1"}>SS1</option>
-          <option value={"JSS3"}>JSS3</option>
-          <option value={"JSS2"}>JSS2</option>
-          <option value={"JSS1"}>JSS1</option>
-        </select>
-      </div>
-      <div className="input">
-        <select name="gender" ref={register}>
-          <option value="gender">Select Gender</option>
-          <option value={"Female"}>Female</option>
-          <option value={"Male"}>Male</option>
-        </select>
-      </div>
+    <>
+      <Navbar />
+      <form onSubmit={handleSubmit(onSubmit)} className="form-edit">
+        <div className="input">
+          <input
+            type="firstName"
+            placeholder="First Name"
+            name="firstName"
+            ref={register({ required: "First Name require" })}
+          />
+          {errors.firstName && (
+            <p style={{ fontSize: "10px", color: "red" }}>
+              {errors.firstName.message}
+            </p>
+          )}
+        </div>
+        <div className="input">
+          <input
+            type="surname"
+            placeholder="surname"
+            name="surname"
+            ref={register({ required: true })}
+          />
+        </div>
+        <div className="input">
+          <input
+            type="email"
+            placeholder="abd***@gmail.com"
+            name="email"
+            ref={register({ required: true })}
+          />
+        </div>
+        <div className="input">
+          <input
+            type="phoneNumber"
+            placeholder="+23481355*****"
+            name="phoneNumber"
+            ref={register({ required: true })}
+          />
+        </div>
+        <div className="input">
+          <input
+            type="address"
+            placeholder="address"
+            name="address"
+            ref={register({ required: true })}
+          />
+        </div>
+        <div className="input">
+          <select name="memberType" ref={register}>
+            <option value="">Select Category</option>
+            <option value={"Teacher"}>Teacher</option>
+            <option value={"Student"}>Student</option>
+          </select>
+        </div>
+        <div className="input">
+          <select name="memberClass" ref={register}>
+            <option value="">Select Class</option>
+            <option value={"SS3"}>SS3</option>
+            <option value={"SS2"}>SS2</option>
+            <option value={"SS1"}>SS1</option>
+            <option value={"JSS3"}>JSS3</option>
+            <option value={"JSS2"}>JSS2</option>
+            <option value={"JSS1"}>JSS1</option>
+          </select>
+        </div>
+        <div className="input">
+          <select name="gender" ref={register}>
+            <option value="gender">Select Gender</option>
+            <option value={"Female"}>Female</option>
+            <option value={"Male"}>Male</option>
+          </select>
+        </div>
 
-      <p style={{ fontSize: "10px", color: "red" }}>{user} </p>
+        <p style={{ fontSize: "10px", color: "red" }}>{user} </p>
 
-      <button>
-        {submitting ? "Loading" : "Submit"}
-        {/* Submit */}
-      </button>
-    </form>
+        <button>
+          {submitting ? "Loading" : "Submit"}
+          {/* Submit */}
+        </button>
+      </form>
+    </>
   );
 }
 

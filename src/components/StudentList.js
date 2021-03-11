@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Navbar from "./Navbar";
 
 import "./StudentList.css";
 
@@ -53,85 +54,89 @@ function StudentList() {
   };
 
   return (
-    <div className="form">
-      <Form.Group>
-        <Form.Control
-          as={Col}
-          md="4"
-          as="select"
-          name="memberClass"
-          size="lg"
-          onChange={handleChange}
-        >
-          <option value="">Select Class</option>
-          <option value={"SS3"}>SS3</option>
-          <option value={"SS2"}>SS2</option>
-          <option value={"SS1"}>SS1</option>
-          <option value={"JSS3"}>JSS3</option>
-          <option value={"JSS2"}>JSS2</option>
-          <option value={"JSS1"}>JSS1</option>
-        </Form.Control>
-        <br />
-        {students.length === 0 ? null : (
+    <>
+      <Navbar />
+      <h1>Student Result</h1>
+      <div className="form">
+        <Form.Group>
+          <Form.Control
+            as={Col}
+            md="4"
+            as="select"
+            name="memberClass"
+            size="lg"
+            onChange={handleChange}
+          >
+            <option value="">Select Class</option>
+            <option value={"SS3"}>SS3</option>
+            <option value={"SS2"}>SS2</option>
+            <option value={"SS1"}>SS1</option>
+            <option value={"JSS3"}>JSS3</option>
+            <option value={"JSS2"}>JSS2</option>
+            <option value={"JSS1"}>JSS1</option>
+          </Form.Control>
+          <br />
+          {students.length === 0 ? null : (
+            <>
+              <Form.Control
+                as="select"
+                name="student"
+                size="lg"
+                onChange={studentDetail}
+              >
+                <option value="student">Student Name</option>
+                {students.map((student) => (
+                  <option key={student._id} value={student.firstName}>
+                    {student.firstName}
+                  </option>
+                ))}
+              </Form.Control>
+            </>
+          )}
+          {console.log(students)}
+          <br />
+        </Form.Group>
+        {states.length === 0 ? null : (
           <>
-            <Form.Control
-              as="select"
-              name="student"
-              size="lg"
-              onChange={studentDetail}
-            >
-              <option value="student">Student Name</option>
-              {students.map((student) => (
-                <option key={student._id} value={student.firstName}>
-                  {student.firstName}
-                </option>
-              ))}
-            </Form.Control>
+            <Card style={{ width: "18rem" }} className="card">
+              <Card.Img
+                variant="top"
+                src="https://pbs.twimg.com/profile_images/1324420867082903552/NRIqLbSE.jpg"
+              />
+              <Card.Body>
+                <Card.Title> Name: {states.firstName}</Card.Title>
+                <Card.Title> Surname: {states.surname}</Card.Title>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroupItem> Reg No: {states.regId}</ListGroupItem>
+                <ListGroupItem> Role: {states.memberType}</ListGroupItem>
+                <ListGroupItem> Address: {states.address}</ListGroupItem>
+              </ListGroup>
+              <Link
+                to={`/edit-student/:${states._id}/:${states.memberClass}`}
+                className="button"
+              >
+                <button
+                  type="submit"
+                  // onClick={handleSubmitClick}
+                  className="btn btn-primary"
+                  // disabled={submitting}
+                >
+                  {/* {submitting ? "Loading" : "Log in"} */}
+                  {"Edit"}
+                </button>
+              </Link>
+              <Link
+                to={`/studentresult/:${states.firstName}/:${states.memberClass}`}
+                className="button"
+              >
+                <button>View Result</button>
+              </Link>
+            </Card>
           </>
         )}
-        {console.log(students)}
-        <br />
-      </Form.Group>
-      {states.length === 0 ? null : (
-        <>
-          <Card style={{ width: "18rem" }} className="card">
-            <Card.Img
-              variant="top"
-              src="https://pbs.twimg.com/profile_images/1324420867082903552/NRIqLbSE.jpg"
-            />
-            <Card.Body>
-              <Card.Title> Name: {states.firstName}</Card.Title>
-              <Card.Title> Surname: {states.surname}</Card.Title>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroupItem> Reg No: {states.regId}</ListGroupItem>
-              <ListGroupItem> Role: {states.memberType}</ListGroupItem>
-              <ListGroupItem> Address: {states.address}</ListGroupItem>
-            </ListGroup>
-            <Link
-              to={`/edit-student/:${states._id}/:${states.memberClass}`}
-              className="button"
-            >
-              <button
-                type="submit"
-                // onClick={handleSubmitClick}
-                className="btn btn-primary"
-                // disabled={submitting}
-              >
-                {/* {submitting ? "Loading" : "Log in"} */}
-                {"Edit"}
-              </button>
-            </Link>
-            <Link
-              to={`/studentresult/:${states.firstName}/:${states.memberClass}`}
-              className="button"
-            >
-              <button>View Result</button>
-            </Link>
-          </Card>
-        </>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
 
